@@ -10,7 +10,6 @@ import lombok.Data;
 public class Pokemon {
 
     private String name;
-    private String url;
     private String highlight;
 
     public Pokemon(){
