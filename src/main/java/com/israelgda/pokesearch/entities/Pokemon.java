@@ -10,7 +10,8 @@ import lombok.Data;
 public class Pokemon {
 
     private String name;
-    private String highlight;
+    private Integer startIndex;
+    private Integer endIndex;
 
     public Pokemon(){
 

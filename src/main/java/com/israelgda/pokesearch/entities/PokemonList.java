@@ -17,4 +17,8 @@ public class PokemonList {
     public PokemonList(){
 
     }
+
+    public void addPokemon(String name, int startIndex, int endIndex){
+        results.add(new Pokemon(name, startIndex, endIndex));
+    }
 }
