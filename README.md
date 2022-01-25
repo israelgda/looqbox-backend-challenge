@@ -14,11 +14,11 @@ https://pokeapi.co/
 ## Funcionalidades
 ### - Endpoint de consulta -
 ```
-POST  /v1/pokemons
+GET  /v1/pokemons
 ```
 * A consulta dos pokemons é realizada através do endpoint mencionado acima. A API irá consultar os Pokemons que contenham em seu nome a substring passada por parâmetro, como no exemplo abaixo:
 ```
-POST  /v1/pokemons?query=charm
+GET  /v1/pokemons?query=charm
 
 Exemplo de retorno:
 {
@@ -42,7 +42,7 @@ Exemplo de retorno:
 
 * Se nenhum pokemon for encontrado com a substring passada, será retornado uma response personalizada como no exemplo abaixo:
 ```
-POST  /v1/pokemons?query=zzzz
+GET  /v1/pokemons?query=zzzz
 
 Exemplo de retorno:
 {
