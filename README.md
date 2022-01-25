@@ -12,7 +12,7 @@ O projeto tem integração com a API PokeAPI para realizar a consulta dos dados 
 https://pokeapi.co/
 ```
 ## Funcionalidades
-### - Endpoint de cadastro -
+### - Endpoint de consulta -
 ```
 POST  /v1/pokemons
 ```
