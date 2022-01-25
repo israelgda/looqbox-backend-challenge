@@ -2,8 +2,11 @@ package com.israelgda.pokesearch.services.client;
 
 import com.israelgda.pokesearch.entities.Pokemon;
 import com.israelgda.pokesearch.entities.PokemonList;
+import com.israelgda.pokesearch.services.exceptions.ResourceNotFoundException;
 import com.israelgda.pokesearch.utils.SortingUtil;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -38,9 +41,14 @@ public class PokeAPIClient {
     }
 
     private static void filter(List<Pokemon> pokemonsList, PokemonList resultList, String substring){
-        pokemonsList.stream().forEach(item -> {
-            if(item.getName().contains(substring))
-                resultList.addPokemon(item.getName(), item.getName().indexOf(substring), item.getName().indexOf(substring)+substring.length());
-        });
+        if(substring == ""){
+            resultList.setResults(pokemonsList);
+        } else {
+            pokemonsList.stream().forEach(item -> {
+                if (item.getName().contains(substring))
+                    resultList.addPokemon(item.getName(), item.getName().indexOf(substring), item.getName().indexOf(substring) + substring.length());
+            });
+        }
+        if(resultList.getResults().isEmpty()) throw new ResourceNotFoundException("No Pokemons Found for substring: " + substring);
     }
 }

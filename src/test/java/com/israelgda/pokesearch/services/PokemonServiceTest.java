@@ -1,12 +1,12 @@
 package com.israelgda.pokesearch.services;
 
 import com.israelgda.pokesearch.entities.PokemonList;
+import com.israelgda.pokesearch.services.exceptions.ResourceNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class PokemonServiceTest {
@@ -34,5 +34,12 @@ public class PokemonServiceTest {
         assertEquals(pokemonList.getResults().get(4).getName(), "venusaur-mega");
         assertEquals(pokemonList.getResults().get(4).getStart(), 4);
         assertEquals(pokemonList.getResults().get(4).getEnd(), 8);
+    }
+
+    @Test
+    public void findBySobstringShouldThrowResourceNotFoundExceptionWhenResultListIsEmpty(){
+        assertThrows(ResourceNotFoundException.class, ()->{
+            pokemonService.findBySubstring("zzzzz");
+        });
     }
 }
