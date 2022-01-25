@@ -1,7 +1,77 @@
-### Would you like to work with us? Apply [here](https://app.pipefy.com/public_form/840222)!
+# Repositório do Desafio backend da Looqbox
+Repositório criado com a finalizade de entregar o desafio de Backend da Looqbox.
+
+## Sobre o desafio
+
+### Objetivo
+Este desafio consiste em contruir um Microsservice utilizando Java e Spring para consumir a PokeAPI e fornecer um endpoint de consulta de pokemons por substring, retornando uma resposta ordenada por dois algoritmos (sem uso de bibliotecas): Comprimento do nome e ordem alfabética. O retorno também deverá mostrar um highlight de qual trecho no nome a substring foi encontrada.
+
+### Integração
+O projeto tem integração com a API PokeAPI para realizar a consulta dos dados dos Pokemons. Mais informações no link baixo:
+```
+https://pokeapi.co/
+```
+## Funcionalidades
+### - Endpoint de cadastro -
+```
+POST  /v1/pokemons
+```
+* A consulta dos pokemons é realizada através do endpoint mencionado acima. A API irá consultar os Pokemons que contenham em seu nome a substring passada por parâmetro, como no exemplo abaixo:
+```
+POST  /v1/pokemons?query=charm
+
+Exemplo de retorno:
+{
+    "results": [
+        {
+            "name": "charmander",
+            "start": 0,
+            "end": 5
+        },
+        {
+            "name": "charmeleon",
+            "start": 0,
+            "end": 5
+        }
+    ]
+}
+```
+* !!! Se não for passado nenhuma string no parâmetro, por padrão serão retornados todos os pokemons listados na PokeAPI !!!
+
+### - Exception Personalizada -
+
+* Se nenhum pokemon for encontrado com a substring passada, será retornado uma response personalizada como no exemplo abaixo:
+```
+POST  /v1/pokemons?query=zzzz
+
+Exemplo de retorno:
+{
+    "timestamp": "2022-01-25T02:21:35.178428500Z",
+    "status": 404,
+    "error": "Empty Result",
+    "message": "No Pokemons Found for substring: zzzz",
+    "path": "/v1/pokemons"
+}
+```
+
+## Diagrama do projeto
+
+![Diagram](src/main/resources/images/Diagram.png)
+## Tecnologias utilizadas
+#### - Frameworks e linguagens-
+* Java 11; 
+* Spring 2.6.3;
+
+## Configurações Locais
+* Para este projeto não foi necessário nenhuma configuração adicional local. Basta clonar e executar, desde que o ambiente Java esteja na mesma versão.
+
+
+---
+### Informações originais do repositório do desafio
 
 # Looqbox Backend Challenge
-![Looqbox](https://github.com/looqbox/looqbox-backend-challenge/blob/master/logo.png)
+
+### Would you like to work with us? Apply [here](https://app.pipefy.com/public_form/840222)!
 
 ## Challenge
 In this challenge you will need to build a **Microservice** using the stack below and a provided api.
