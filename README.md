@@ -1,5 +1,5 @@
 # Repositório do Desafio backend da Looqbox
-Repositório criado com a finalizade de entregar o desafio de Backend da Looqbox.
+Repositório criado com a finalidade de entregar o desafio de Backend da Looqbox.
 
 ## Sobre o desafio
 
