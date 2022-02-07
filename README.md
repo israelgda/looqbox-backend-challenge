@@ -62,8 +62,27 @@ Exemplo de retorno:
 * Java 11; 
 * Spring 2.6.3;
 
+## Executando o projeto em container Docker
+
+### Para criar e executar o projeto em um container Docker utilizando o arquivo Dockerfile siga os passos abaixo:
+
+1- Após clonar o repositório, execute o comando gradle para buildar o projeto:
+```
+gradle clean build
+```
+
+2- Após buildar o projeto, crie a imagem Docker executando o comando abaixo:
+```
+docker build -t pokesearch:v1 .
+```
+
+3- Após o processo de criação de imagem finalizar, execute-a para iniciar o container com o comando abaixo:
+```
+docker run -p 8080:8080 pokesearch:v1 .
+```
+* O comando está disponibilizando a aplicação na porta externa 8080. Caso deseje disponibilizar em outra porta basta alterá-lo mudando a porta da esquerda do parâmetro. (Ex: docker run -p 8081:8080 pokesearch:v1 .)
 ## Configurações Locais
-* Para este projeto não foi necessário nenhuma configuração adicional local. Basta clonar e executar, desde que o ambiente Java esteja na mesma versão.
+* Para este projeto não foi necessário nenhuma configuração adicional local. Se desejar rodar localmente basta clonar e executar, desde que o ambiente Java esteja na mesma versão.
 
 
 ---
