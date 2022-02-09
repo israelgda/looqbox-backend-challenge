@@ -40,7 +40,7 @@ Exemplo de retorno:
 
 ### - Exception Personalizada -
 
-* Se nenhum pokemon for encontrado com a substring passada, será retornado uma response personalizada como no exemplo abaixo:
+* Se nenhum pokemon for encontrado com a substring passada, será retornado uma resposta personalizada como no exemplo abaixo:
 ```
 GET  /v1/pokemons?query=zzzz
 
@@ -80,7 +80,7 @@ docker build -t pokesearch:v1 .
 ```
 docker run -p 8080:8080 pokesearch:v1 .
 ```
-* O comando está disponibilizando a aplicação na porta externa 8080. Caso deseje disponibilizar em outra porta basta alterá-lo mudando a porta da esquerda do parâmetro. (Ex: docker run -p 8081:8080 pokesearch:v1 .)
+* O comando está disponibilizando a aplicação na porta externa 8080. Caso deseje disponibilizar em outra porta basta alterá-lo mudando a porta da esquerda do parâmetro. (Ex: docker run -p 8081:8080 pokesearch:v1 .);
 ## Configurações Locais
 * Para este projeto não foi necessário nenhuma configuração adicional local. Se desejar rodar localmente basta clonar e executar, desde que o ambiente Java esteja na mesma versão.
 
